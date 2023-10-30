@@ -10,7 +10,6 @@
 </head>
 <body class="bg-gray-50 text-slate-500">
 <div class="container mx-auto mt-8">
-    <h1 class="text-3xl font-bold text-gray-400 mb-4">Les vols disponibles</h1>
     <div class="flex justify-end">
         <a href="CreateVolServlet" class="text-white bg-blue-500 py-2 px-8 rounded-lg text-lg hover:bg-blue-600">
             Create Vol

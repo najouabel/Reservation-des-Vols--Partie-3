@@ -2,6 +2,7 @@ package Servlets.Vol;
 
 import Dao.Imple.VolsDao;
 import Entity.Vols;
+import Services.VolService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +18,8 @@ public class UpdateVolServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long id = Long.valueOf(req.getParameter("id"));
 
-        Optional<Vols> vols1 = new VolsDao().findById(id);
+
+        Optional<Vols> vols1 = new VolService().getVolById(id);
 
         if (vols1.isPresent()) {
             Vols vols = vols1.get();

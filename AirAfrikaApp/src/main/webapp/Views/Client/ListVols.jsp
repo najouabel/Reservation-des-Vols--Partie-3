@@ -3,129 +3,64 @@
 
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer">
 </head>
-<body>
-<style>
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none !important;
-    }
-    .scrollbar-hide {
-        -ms-overflow-style: none !important;
-        scrollbar-width: none !important;
-    }
-</style>
-<jsp:include page="../Components/header.jsp"></jsp:include>
-<div class="container max-w-6xl mx-auto mt-8">
-    <div class="mb-4">
-        <h1 class="font-serif text-3xl font-bold decoration-gray-400">Les vols disponible</h1>
+<body class="bg-gray-50 text-slate-500">
+<div class="container mx-auto mt-8">
+    <div class="flex justify-end">
+
+        <c:if test="${not empty sessionScope.IDClient}">
+            <p class="text-gray-700 text-lg mr-4">Bonjour, ${clientName}</p>
+            <a href="ClientLogoutServlet" class="text-white bg-red-500 py-2 px-6 rounded-lg text-lg hover:bg-red-600">Déconnexion</a>
+        </c:if>
+
+        <c:if test="${empty sessionScope.IDClient}">
+            <a href="ClientLoginServlet" class="text-white bg-blue-500 py-2 px-8 rounded-lg text-lg hover:bg-blue-600">Login</a>
+        </c:if>
+
+
     </div>
+    <div class="overflow-x-auto mt-4">
+        <table class="min-w-full bg-white">
+            <thead>
+            <tr>
+                <th class="px-6 py-3 text-xs font-medium text-left uppercase bg-gray-50">Ville de départ</th>
+                <th class="px-6 py-3 text-xs font-medium text-left uppercase bg-gray-50">Ville d'arrivée</th>
+                <th class="px-6 py-3 text-xs font-medium text-left uppercase bg-gray-50">Heure de départ</th>
+                <th class="px-6 py-3 text-xs font-medium text-left uppercase bg-gray-50">Heure d'arrivée</th>
+                <th class="px-6 py-3 text-xs font-medium text-left uppercase bg-gray-50">Nombre de places</th>
+                <th class="px-6 py-3 text-xs font-medium text-left uppercase bg-gray-50">Type de vols</th>
+                <th class="px-6 py-3 text-xs font-medium text-left uppercase bg-gray-50">Nombre de places disponibles</th>
+                <th class="px-6 py-3 text-sm text-left bg-gray-50" colspan="3"> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="vols" items="${vols}">
+                <tr>
+                    <td class="px-6 py-4">${vols.villeDepart}</td>
+                    <td class="px-6 py-4">${vols.villeArrivee}</td>
+                    <td class="px-6 py-4">${vols.departTime}</td>
+                    <td class="px-6 py-4">${vols.arriveTime}</td>
+                    <td class="px-6 py-4">${vols.nbPlace}</td>
+                    <td class="px-6 py-4">${vols.typeVols}</td>
+                    <td class="px-6 py-4">${vols.nbPlaceDispo}</td>
+                    <td class="px-6 py-4">
 
-    <div class="flex flex-col">
-        <div class="overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 scrollbar-hide">
-            <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                <table class="min-w-full">
-                    <thead>
-                    <tr>
-
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Ville de depart
-                        </th>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Ville d'arrivée
-                        </th>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Heure de depart
-                        </th>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Heure d'arrivée
-                        </th>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            nombre de place
-                        </th>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            type de vols
-                        </th>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Nombre de place disponible
-                        </th>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-
-                        </th>
-
-
-                    </tr>
-                    </thead>
-                    <tbody class="bg-white">
-                    <c:forEach var="vols" items="${vols}">
-                        <tr>
-
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <p>
-                                        ${vols.villeDepart}
-                                </p>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <p>
-                                        ${vols.villeArrivee}
-                                </p>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <p>
-                                        ${vols.departTime}
-                                </p>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <p>
-                                        ${vols.arriveTime}
-                                </p>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <p>
-                                        ${vols.nbPlace}
-                                </p>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <p>
-                                        ${vols.typeVols}
-                                </p>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <p>
-                                        ${vols.nbPlaceDispo}
-                                </p>
-                            </td>
-                            <td>
-                                <p>
-                                    <c:if test="${not empty sessionScope.IDClient}">
-                                    <a href="ClientReserverServlet">reserver</a>
-                                    </c:if>
-                                    <c:if test="${empty sessionScope.IDClient}">
-                                        <a href="ClientLoginServlet">reserver</a>
-                                    </c:if>
-                                </p>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-
-            </div>
-            <c:if test="${not empty sessionScope.IDClient}">
-                <p>Bonjour, ${clientName}</p>
-                <a href="ClientLogoutServlet">deconnexion</a>
-            </c:if>
-            <c:if test="${empty sessionScope.IDClient}">
-                <a href="ClientLoginServlet">Login</a>
-            </c:if>
-
-        </div>
+                        <c:if test="${not empty sessionScope.IDClient}">
+                            <a href="ClientReserverServlet" class="text-indigo-600 hover:text-indigo-900">Réserver</a>
+                        </c:if>
+                        <c:if test="${empty sessionScope.IDClient}">
+                            <a href="ClientLoginServlet" class="text-indigo-600 hover:text-indigo-900">Réserver</a
+                        </c:if>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 </div>
-<jsp:include page="../Components/footer.jsp"></jsp:include>
 </body>
 </html>

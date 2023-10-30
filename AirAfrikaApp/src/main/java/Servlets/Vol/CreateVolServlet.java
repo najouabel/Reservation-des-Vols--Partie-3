@@ -36,6 +36,8 @@ public class CreateVolServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String villeDepart = request.getParameter("ville_depart");
         String villeArrivee = request.getParameter("ville_arrivee");
+        int nbre_place = Integer.parseInt(request.getParameter("nbre_place"));
+
         int societe_id = Integer.parseInt(request.getParameter("societe_id"));
 
             Vols vol = new Vols();
@@ -43,6 +45,8 @@ public class CreateVolServlet extends HttpServlet {
             VolsDao volsDao = new VolsDao();
             vol.setVilleDepart(villeDepart);
             vol.setVilleArrivee(villeArrivee);
+            vol.setNbPlace(nbre_place);
+
             SocieteDao societeDao = new SocieteDao();
             Societe societe = societeDao.findById((long) societe_id).orElse(null);
 
@@ -51,7 +55,7 @@ public class CreateVolServlet extends HttpServlet {
             Vols createdVol = volsDao.save(vol);
 
             if (createdVol != null ) {
-                response.sendRedirect("./Views/Admin/adminDash.jsp");
+                response.sendRedirect("DashboardAdminServlet");
             } else {
                 request.setAttribute("errorMessage", "La création du vol a échoué. Veuillez réessayer.");
                 request.getRequestDispatcher("./Views/Admin/createvol.jsp").forward(request, response);

@@ -21,70 +21,68 @@
             </div>
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-gray-900/10">
                 <form method="POST">
-                    <!-- Ville de depart -->
                     <div>
                         <label class="mb-4 block text-sm font-bold text-gray-700">
                             Ville de depart
                         </label>
                         <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="text" name="ville_depart" placeholder="Enter la ville de depart" />
                     </div>
-                    <!-- Ville d'arrivée -->
                     <div class="mt-4">
                         <label class="mb-4 block text-sm font-bold text-gray-700">
                             Ville d'arrivée
                         </label>
                         <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="text" name="ville_arrivee" placeholder="Enter la ville d'arrivée" />
                     </div>
-                    <!-- Heure de depart -->
-                    <div>
-                        <label class="mb-4 block text-sm font-bold text-gray-700">
-                            Heure de depart
-                        </label>
-                        <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="time" name="heure_depart" placeholder="Enter l'heure de depart" />
-                    </div>
-                    <!-- Heure d'arrivée -->
-                    <div class="mt-4">
-                        <label class="mb-4 block text-sm font-bold text-gray-700">
-                            Heure d'arrivée
-                        </label>
-                        <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="time" name="heure_arrivee" placeholder="Enter l'heure d'arrivée" />
-                    </div>
-                    <!-- Date de depart -->
-                    <div>
-                        <label class="mb-4 block text-sm font-bold text-gray-700">
-                            Date de depart
-                        </label>
-                        <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="date" name="date_depart" placeholder="Enter la date de depart" />
-                    </div>
-                    <!-- Date d'arrivée -->
-                    <div class="mt-4">
-                        <label class="mb-4 block text-sm font-bold text-gray-700">
-                            Date d'arrivée
-                        </label>
-                        <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="date" name="date_arrivee" placeholder="Enter la date d'arrivée" />
-                    </div>
-                    <!-- Nbr de place -->
-                    <div class="mt-4">
-                        <label class="mb-4 block text-sm font-bold text-gray-700">
-                            Nombre de place
-                        </label>
-                        <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="number" max="30" name="nbre_place" placeholder="Enter le nombre de place" />
-                    </div>
-                    <!-- Prix -->
-                    <div class="mt-4">
-                        <label class="mb-4 block text-sm font-bold text-gray-700">
-                            Prix
-                        </label>
-                        <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="number" name="prix" placeholder="Enter le prix" />
-                    </div>
-                    <!-- Stop over aeroport -->
-                    <div class="mt-4">
-                        <label class="mb-4 block text-sm font-bold text-gray-700">
-                            Escal
-                        </label>
-                        <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" type="text" name="stopover_aero" placeholder="Si le vol contient un escale plz entrer le nom de l'aeroport" />
-                    </div>
-                    <!-- Sélection de la Société -->
+
+                   <div>
+                       <label class="mb-4 block text-sm font-bold text-gray-700">
+                           Heure de depart
+                       </label>
+                       <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="time" name="heure_depart" placeholder="Enter l'heure de depart" />
+                   </div>
+
+                   <div class="mt-4">
+                       <label class="mb-4 block text-sm font-bold text-gray-700">
+                           Heure d'arrivée
+                       </label>
+                       <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="time" name="heure_arrivee" placeholder="Enter l'heure d'arrivée" />
+                   </div>
+
+                   <div>
+                       <label class="mb-4 block text-sm font-bold text-gray-700">
+                           Date de depart
+                       </label>
+                       <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="date" name="date_depart" placeholder="Enter la date de depart" />
+                   </div>
+
+                   <div class="mt-4">
+                       <label class="mb-4 block text-sm font-bold text-gray-700">
+                           Date d'arrivée
+                       </label>
+                       <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="date" name="date_arrivee" placeholder="Enter la date d'arrivée" />
+                   </div>
+                   <div class="mt-4">
+                       <label class="mb-4 block text-sm font-bold text-gray-700">
+                           Nombre de place
+                       </label>
+                       <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="number" max="30" name="nbre_place" placeholder="Enter le nombre de place" />
+                   </div>
+
+                   <div class="mt-4">
+                       <label class="mb-4 block text-sm font-bold text-gray-700">
+                           Prix
+                       </label>
+                       <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="number" name="prix" placeholder="Enter le prix" />
+                   </div>
+                    <!--
+                   <div class="mt-4">
+                       <label class="mb-4 block text-sm font-bold text-gray-700">
+                           Escal
+                       </label>
+                       <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" type="text" name="stopover_aero" placeholder="Si le vol contient un escale plz entrer le nom de l'aeroport" />
+                   </div>
+                   -->
+
                     <div class="mt-4">
                         <label class="mb-4 block text-sm font-bold text-gray-700">
                             Société
